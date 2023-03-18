@@ -20,11 +20,20 @@ const pageCache = new CacheFirst({
 });
 
 warmStrategyCache({
-  urls: ['/index.html', '/'],
+  urls: [
+    '/index.html', 
+    '/', 
+    // '/css/style.css',
+    // '/index.js',
+    // '/images/logo.png',
+  ],
   strategy: pageCache,
 });
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
-registerRoute();
+registerRoute(
+
+
+);
