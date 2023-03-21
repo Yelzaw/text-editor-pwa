@@ -26,11 +26,12 @@ const tx = jateDb.transaction('jate', 'readwrite');
 const store = tx.objectStore('jate');
 
 // Use the .add() method on the store and pass in the content.
-const request = store.put({jate: content});
+const request = store.put({id:1, value: content});
 
 // Get confirmation of the request.
 const result = await request;
 console.log('🚀 - data saved to the database', result);
+return result;
 };
 
 
@@ -53,7 +54,7 @@ export const getDb = async () => {
   // Get confirmation of the request.
   const result = await request;
   console.log('result.value', result);
-  return result;
+  return result?.value;
 };
 
 initdb();
